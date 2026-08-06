@@ -1,17 +1,21 @@
-function TopBar(){
-    return(
-        <nav>
+import './TopBar.css'
 
-    <div class="logo">
+function TopBar() {
+    return(
+    <nav>
+
+    <div className="logo">
         <strong>MARINA BOMBINI</strong> / Full Stack Developer
     </div>
 
-    <div class="links">
-        <a href="">LINKEDIN</a>
-        <a href="">GITHUB</a>
-        <a href="">CONTACT ME</a>
+    <div className="links">
+        <a>LINKEDIN</a>
+        <a>GITHUB</a>
+        <a>CONTACT ME</a>
     </div>
 
-</nav>
+    </nav>
     )
 }
+
+export default TopBar

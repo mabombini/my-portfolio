@@ -1,17 +1,18 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
-import Topbar from './components/Topbar'
+import Topbar from './components/TopBar'
+import Hero from './components/Hero'
 
 function App() {
   
       
 return (
   <>
-  <Topbar />
-  </>
+  <section>
+    <Topbar />
+    <Hero />
+  </section>
+ </> 
   )
 }
 

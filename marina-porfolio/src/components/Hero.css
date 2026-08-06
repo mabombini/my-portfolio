@@ -1,0 +1,150 @@
+.hero-section{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.hero-text{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    line-height: 0.9;
+}
+
+.hero-hello{
+    color: black;
+    font-family: "Waiting for the Sunrise", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 33px;
+    line-height: 1.4;
+}
+
+.hero-name{
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+    color: black;
+    font-family: "Unna", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 170px;
+    line-height: 0.75;
+    cursor: default;
+    filter: none;
+    text-shadow: none;
+}
+
+.hero-name:hover {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-image:
+        radial-gradient(
+            circle 150px at var(--pointer-x, 50%) var(--pointer-y, 50%),
+            transparent 0 20%,
+            rgba(0, 0, 0, 0.18) 52%,
+            #000 94%
+        ),
+        linear-gradient(100deg, #A8D1D1 0%, #A8D1D1 25%, #9EA1D4 40%, #F1F7B5 60%, #FFCBCB 80%, #FD8A8A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.hero-img{
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: red;
+}
+
+.hero-image {
+    position: relative;
+    width: 210px;
+}
+
+.arrow-img {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    top: -2px;
+    right: 205px;
+    mix-blend-mode: multiply;
+    transform: rotate(15deg);
+}
+
+.bubble {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: fit-content;
+    min-width: 165px;
+    min-height: 45px;
+    padding: 13px 18px 9px 28px;
+    transform: translateX(-50%);
+}
+
+.bubble-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bubble-text {
+    position: relative;
+    z-index: 1;
+    color: #111;
+    font-family: "Waiting for the Sunrise", cursive;
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.green-rectangle {
+    position: absolute;
+    width: 120px;
+    height: 12px;
+    background-color: #A8D1D1;
+    top: 22px;
+    left: -525px;
+    z-index: -1;
+    transform: rotate(1.5deg);
+}
+
+.yellow-elipse {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    background-color: #F1F7B5;
+    border-radius: 70%;
+    top: 180px;
+    left: -325px;
+    z-index: -1;
+}
+
+.pink-rectangle {
+    position: absolute;
+    width: 118px;
+    height: 10px;
+    background-color: #FD8A8A;
+    top: 192px;
+    left: -140px;
+    z-index: -1;
+}
+
+.bubble-text{
+    top: 5px;
+    font-family: "Micro 5", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+}
