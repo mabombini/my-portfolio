@@ -157,6 +157,17 @@
     font-size: 23px;
 }
 
+.my-tools{
+    position: relative;
+    color: black;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.4;
+    top: 20px;
+}
+
 @media (max-width: 780px) {
     .hero-section {
         padding: 110px 24px 95px;

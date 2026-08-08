@@ -1,0 +1,18 @@
+.move-me{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1px 0px 0px 0px;
+}
+
+.move-me-text{
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    justify-content: center;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

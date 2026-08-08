@@ -25,7 +25,7 @@ const SKILLS = [
 
 const PLAYER_WIDTH = 28
 const PLAYER_HEIGHT = 18
-const FLOOR_OFFSET = 42
+const FLOOR_OFFSET = 92
 
 export default function SkillRunner({ onMessageChange }) {
     const arenaRef = useRef(null)
@@ -35,6 +35,7 @@ export default function SkillRunner({ onMessageChange }) {
     const keysRef = useRef({ left: false, right: false })
     const nextIdRef = useRef(1)
     const resetTimerRef = useRef(null)
+    const damageCooldownRef = useRef(0)
 
     const [playerX, setPlayerX] = useState(0.5)
     const [drops, setDrops] = useState([])
@@ -56,11 +57,12 @@ export default function SkillRunner({ onMessageChange }) {
         setCollected([])
         setDrops([])
         setGameState('playing')
+        damageCooldownRef.current = 0
         announce('CATCH MY SKILLS!  ← → OR A / D')
     }, [announce])
 
     useEffect(() => {
-        announce('CATCH MY SKILLS!  ← → OR A / D')
+        announce('WELCOME TO MY PORFOLIO')
     }, [announce])
 
     useEffect(() => {
@@ -128,18 +130,18 @@ export default function SkillRunner({ onMessageChange }) {
 
             obstacleClock += dt
             skillClock += dt
-            if (obstacleClock > 0.6) {
+            if (obstacleClock > 0.2) {
                 obstacleClock = 0
                 spawn('obstacle')
             }
-            if (skillClock > 1.4) {
+            if (skillClock > 0.6) {
                 skillClock = 0
                 const remaining = SKILLS.filter((skill) => !collectedRef.current.has(skill.id))
                 if (remaining.length) {
                     const skill = remaining[Math.floor(Math.random() * remaining.length)]
                     setDrops((current) => [...current, {
                         id: nextIdRef.current++, type: 'skill', skill,
-                        x: 0.06 + Math.random() * 0.88, y: -60, size: 62, speed: 175,
+                        x: 0.06 + Math.random() * 0.88, y: -60, size: 40, speed: 400,
                     }])
                 }
             }
@@ -175,17 +177,19 @@ export default function SkillRunner({ onMessageChange }) {
                         }
                         continue
                     }
-                    if (overlaps && drop.type === 'obstacle' && !wasHit) {
-                        wasHit = true
-                        const nextLives = Math.max(0, livesRef.current - 1)
-                        livesRef.current = nextLives
-                        setLives(nextLives)
-                        if (nextLives === 0) {
-                            setGameState('over')
-                            announce('GAME OVER — TRY AGAIN!')
-                            resetTimerRef.current = window.setTimeout(resetGame, 1800)
-                        } else {
-                            announce(`OUCH! ${nextLives} ${nextLives === 1 ? 'LIFE' : 'LIVES'} LEFT`)
+                    if (overlaps && drop.type === 'obstacle') {
+                        if (!wasHit && time >= damageCooldownRef.current) {
+                            wasHit = true
+                            damageCooldownRef.current = time + 600
+                            const nextLives = Math.max(0, livesRef.current - 1)
+                            livesRef.current = nextLives
+                            setLives(nextLives)
+                            if (nextLives === 0) {
+                                setGameState('over')
+                                announce('GAME OVER — TRY AGAIN!')
+                            } else {
+                                announce(`OUCH! ${nextLives} ${nextLives === 1 ? 'LIFE' : 'LIVES'} LEFT`)
+                            }
                         }
                         continue
                     }
@@ -240,6 +244,14 @@ export default function SkillRunner({ onMessageChange }) {
                     )
                 })}
             </div>
+
+            {gameState !== 'playing' && (
+                <div className="runner-end-state">
+                    <button className="play-again-button" type="button" onClick={resetGame}>
+                        PLAY AGAIN
+                    </button>
+                </div>
+            )}
         </div>
     )
 }

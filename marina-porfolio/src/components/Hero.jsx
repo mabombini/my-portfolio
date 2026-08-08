@@ -35,6 +35,7 @@ function Hero(){
                     Marina
                 </span>
                 <a className="hero-hello">Welcome to my corner of the internet</a>
+                <a className="my-tools">My tools:</a>
             </div>
             <div className="hero-image">
                 <img className="hero-img" src={meImg} alt="Marina" />
