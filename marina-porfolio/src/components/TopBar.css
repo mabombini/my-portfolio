@@ -2,7 +2,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 70px;
+    padding: 30px 180px;
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -10,7 +10,7 @@ nav{
 
 .logo{
     color: black;
-    font-size: 24px;
+    font-size: 16px;
 }
 
 body{
@@ -22,4 +22,5 @@ body{
     display: flex;
     flex-direction: row;
     gap: 10px;
+    font-size: 16px;
 }

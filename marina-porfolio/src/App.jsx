@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import Topbar from './components/TopBar'
 import Hero from './components/Hero'
