@@ -15,7 +15,7 @@ function Bubble({ children }) {
 }
 
 function Hero(){
-    const [gameMessage, setGameMessage] = useState('CATCH MY SKILLS!  ← → OR A / D')
+    const [gameMessage, setGameMessage] = useState('PRESS ← → OR A / D TO PLAY')
     const moveNameGradient = (event) => {
         const bounds = event.currentTarget.getBoundingClientRect()
         event.currentTarget.style.setProperty('--pointer-x', `${event.clientX - bounds.left}px`)
@@ -34,8 +34,8 @@ function Hero(){
                 >
                     Marina
                 </span>
-                <a className="hero-hello">Welcome to my corner of the internet</a>
-                <a className="my-tools">My tools:</a>
+                <p className="hero-hello hero-intro">Welcome to my corner of the internet.</p>
+                <p className="my-tools">My tools:</p>
             </div>
             <div className="hero-image">
                 <img className="hero-img" src={meImg} alt="Marina" />

@@ -1,28 +1,157 @@
+.portfolio-pages {
+  position: relative;
+  width: 100%;
+}
 
-section{
+.page-section {
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: 100vh;
-  width: 100vw;
+  height: 100svh;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.hero{
-  position: fixed;
-  z-index:0;
-}
-
-.about-me{
-  position: relative;
-  top: 100vh;
-  height: 100vh;
-  width: 100vw;
-  z-index:1;
-  background-color: #F1F7B5;
-}
-
-.move-me-container{
-  width:100%;
-  bottom: 95px;
-  position: absolute;
+.hero {
   z-index: 1;
+  background: #fff;
+}
+
+.about-me {
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  background-color: #F1F7B5;
+  box-shadow: 0 -14px 35px rgba(17, 17, 17, .08);
+}
+
+.move-me-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.projects {
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+  background-color: #A8D1D1;
+  box-shadow: 0 -14px 35px rgba(17, 17, 17, .1);
+}
+
+.contact {
+  z-index: 4;
+  align-items: center;
+  justify-content: center;
+  background-color: #FD8A8A;
+  box-shadow: 0 -14px 35px rgba(17, 17, 17, .1);
+}
+
+.section-intro {
+  width: min(82vw, 950px);
+  color: #111;
+}
+
+.section-intro > span {
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.section-intro h2 {
+  max-width: 850px;
+  margin: 15px 0;
+  font-family: "Unna", serif;
+  font-size: clamp(60px, 10vw, 145px);
+  font-weight: 400;
+  line-height: .83;
+}
+
+.section-intro p {
+  font-family: "Waiting for the Sunrise", cursive;
+  font-size: clamp(22px, 3vw, 36px);
+}
+
+.contact-intro h2 {
+  max-width: 1050px;
+  font-size: clamp(48px, 7.8vw, 112px);
+}
+
+.collaboration-line {
+  margin: 25px 0 0;
+  font-family: "Unna", serif !important;
+  font-size: clamp(27px, 4vw, 52px) !important;
+  line-height: 1.1;
+}
+
+.rotating-word {
+  display: inline-block;
+  color: #F1F7B5;
+  font-style: italic;
+  animation: word-switch .45s ease both;
+}
+
+.together-line {
+  display: block;
+}
+
+@keyframes word-switch {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.contact-links {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 28px;
+}
+
+.contact-intro .contact-button {
+  display: inline-block;
+  padding: 13px 20px;
+  border: 1.5px solid #111;
+  border-radius: 999px;
+  background: #F1F7B5;
+  color: #111;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  box-shadow: 5px 5px 0 #111;
+}
+
+.contact-intro .social-button {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1.5px solid #111;
+  border-radius: 50%;
+  background: #FFCBCB;
+  box-shadow: 4px 4px 0 #111;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.contact-intro .social-button:hover,
+.contact-intro .contact-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #111;
+}
+
+.social-button svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+@media (max-width: 700px) {
+  .section-intro h2 { font-size: clamp(55px, 18vw, 90px); }
+  .contact-intro h2 { font-size: clamp(42px, 12vw, 68px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotating-word { animation: none; }
 }

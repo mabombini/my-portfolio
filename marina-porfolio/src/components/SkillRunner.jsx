@@ -41,7 +41,7 @@ export default function SkillRunner({ onMessageChange }) {
     const [drops, setDrops] = useState([])
     const [lives, setLives] = useState(3)
     const [collected, setCollected] = useState([])
-    const [gameState, setGameState] = useState('playing')
+    const [gameState, setGameState] = useState('idle')
 
     const announce = useCallback((message) => {
         onMessageChange?.(message)
@@ -62,12 +62,20 @@ export default function SkillRunner({ onMessageChange }) {
     }, [announce])
 
     useEffect(() => {
-        announce('WELCOME TO MY PORFOLIO')
+        announce('PRESS ← → OR A / D TO PLAY')
     }, [announce])
 
     useEffect(() => {
         const keyChange = (pressed) => (event) => {
             const key = event.key.toLowerCase()
+            const isMoveKey = key === 'arrowleft' || key === 'arrowright' || key === 'a' || key === 'd'
+            if (pressed && isMoveKey) {
+                setGameState((current) => {
+                    if (current !== 'idle') return current
+                    announce('CATCH MY SKILLS!')
+                    return 'playing'
+                })
+            }
             if (key === 'arrowleft' || key === 'a') {
                 keysRef.current.left = pressed
                 event.preventDefault()
@@ -85,7 +93,7 @@ export default function SkillRunner({ onMessageChange }) {
             window.removeEventListener('keydown', down)
             window.removeEventListener('keyup', up)
         }
-    }, [])
+    }, [announce])
 
     useEffect(() => {
         if (gameState !== 'playing') return
@@ -130,18 +138,18 @@ export default function SkillRunner({ onMessageChange }) {
 
             obstacleClock += dt
             skillClock += dt
-            if (obstacleClock > 0.2) {
+            if (obstacleClock > 0.55) {
                 obstacleClock = 0
                 spawn('obstacle')
             }
-            if (skillClock > 0.6) {
+            if (skillClock > 0.95) {
                 skillClock = 0
                 const remaining = SKILLS.filter((skill) => !collectedRef.current.has(skill.id))
                 if (remaining.length) {
                     const skill = remaining[Math.floor(Math.random() * remaining.length)]
                     setDrops((current) => [...current, {
                         id: nextIdRef.current++, type: 'skill', skill,
-                        x: 0.06 + Math.random() * 0.88, y: -60, size: 40, speed: 400,
+                        x: 0.06 + Math.random() * 0.88, y: -60, size: 40, speed: 210,
                     }])
                 }
             }
@@ -208,7 +216,7 @@ export default function SkillRunner({ onMessageChange }) {
     useEffect(() => () => window.clearTimeout(resetTimerRef.current), [])
 
     return (
-        <div className="skill-runner" ref={arenaRef} aria-label="Skill Runner game">
+        <div className={`skill-runner game-${gameState}`} ref={arenaRef} aria-label="Skill Runner game">
             <div className="runner-lives" aria-label={`${lives} lives remaining`}>
                 {[0, 1, 2].map((heart) => (
                     <span className={heart < lives ? 'life active' : 'life'} key={heart}>♥</span>
@@ -245,7 +253,7 @@ export default function SkillRunner({ onMessageChange }) {
                 })}
             </div>
 
-            {gameState !== 'playing' && (
+            {(gameState === 'won' || gameState === 'over') && (
                 <div className="runner-end-state">
                     <button className="play-again-button" type="button" onClick={resetGame}>
                         PLAY AGAIN

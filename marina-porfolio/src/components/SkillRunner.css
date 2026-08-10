@@ -19,6 +19,20 @@
 .life { color: #d8d8d8; transition: color 180ms, transform 180ms; }
 .life.active { color: #FD8A8A; transform: scale(1.08); }
 
+.game-idle .runner-lives,
+.game-idle .skill-shelf {
+    opacity: .45;
+}
+
+.game-idle .runner-player {
+    animation: runner-ready 1.5s ease-in-out infinite;
+}
+
+@keyframes runner-ready {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-4px); }
+}
+
 .falling-skill,
 .runner-obstacle {
     position: absolute;
@@ -39,7 +53,7 @@
 
 .runner-player {
     position: absolute;
-    bottom: 82px;
+    bottom: 0px;
     width: 38px;
     height: 18px;
     z-index: 3;
@@ -120,4 +134,5 @@
 
 @media (prefers-reduced-motion: reduce) {
     .shelf-item img, .life { transition: none; }
+    .game-idle .runner-player { animation: none; }
 }
