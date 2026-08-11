@@ -4,6 +4,7 @@ import Topbar from './components/TopBar'
 import Hero from './components/Hero'
 import MoveMe from './components/MoveMe'
 import AboutMe from './components/AboutMe'
+import Projects from './components/Projects'
 
 const collaborationWords = ['simplify', 'automate', 'solve problems']
 
@@ -39,11 +40,7 @@ return (
   </section>
 
   <section className="page-section projects" id="projects">
-    <div className="section-intro">
-      <span>02 / PROJECTS</span>
-      <h2>Things I’ve built</h2>
-      <p>A selection of projects is coming next.</p>
-    </div>
+    <Projects />
   </section>
 
   <section className="page-section contact" id="contact">

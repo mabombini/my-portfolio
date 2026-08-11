@@ -13,6 +13,12 @@ import mongodbBlack from '../assets/icons/mongodb-black.svg'
 import mongodbColor from '../assets/icons/mongodb-color.svg'
 import csharpBlack from '../assets/icons/csharp-black.svg'
 import csharpColor from '../assets/icons/csharp-color.svg'
+import sqlBlack from '../assets/icons/sql-black.svg'
+import sqlColor from '../assets/icons/sql-color.svg'
+import gitBlack from '../assets/icons/git-black.svg'
+import gitColor from '../assets/icons/git-color.svg'
+import nodeBlack from '../assets/icons/node-black.svg'
+import nodeColor from '../assets/icons/node-color.svg'
 
 const SKILLS = [
     { id: 'react', label: 'React', black: reactBlack, color: reactColor },
@@ -21,6 +27,9 @@ const SKILLS = [
     { id: 'css', label: 'CSS', black: cssBlack, color: cssColor },
     { id: 'mongodb', label: 'MongoDB', black: mongodbBlack, color: mongodbColor },
     { id: 'csharp', label: 'C#', black: csharpBlack, color: csharpColor },
+    { id: 'sql', label: 'SQL', black: sqlBlack, color: sqlColor },
+    { id: 'git', label: 'Git', black: gitBlack, color: gitColor },
+    { id: 'nodejs', label: 'Node.js', black: nodeBlack, color: nodeColor },
 ]
 
 const PLAYER_WIDTH = 28
@@ -132,17 +141,17 @@ export default function SkillRunner({ onMessageChange }) {
 
             const direction = Number(keysRef.current.right) - Number(keysRef.current.left)
             if (direction) {
-                playerXRef.current = Math.max(0.035, Math.min(0.965, playerXRef.current + direction * dt * 0.62))
+                playerXRef.current = Math.max(0.035, Math.min(0.965, playerXRef.current + direction * dt * 0.9))
                 setPlayerX(playerXRef.current)
             }
 
             obstacleClock += dt
             skillClock += dt
-            if (obstacleClock > 0.55) {
+            if (obstacleClock > 0.2) {
                 obstacleClock = 0
                 spawn('obstacle')
             }
-            if (skillClock > 0.95) {
+            if (skillClock > 0.6) {
                 skillClock = 0
                 const remaining = SKILLS.filter((skill) => !collectedRef.current.has(skill.id))
                 if (remaining.length) {

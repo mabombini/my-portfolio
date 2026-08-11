@@ -37,7 +37,10 @@
 .projects {
   z-index: 3;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: clamp(24px, 4vh, 48px) 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background-color: #A8D1D1;
   box-shadow: 0 -14px 35px rgba(17, 17, 17, .1);
 }
