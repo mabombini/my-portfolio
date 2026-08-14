@@ -16,3 +16,7 @@
     font-weight: 400;
     font-style: normal;
 }
+
+@media (max-width: 900px) {
+    .move-me { display: none; }
+}

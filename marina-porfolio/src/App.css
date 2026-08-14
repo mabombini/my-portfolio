@@ -158,6 +158,23 @@
   .contact-intro h2 { font-size: clamp(42px, 12vw, 68px); }
 }
 
+@media (max-width: 900px) {
+  .page-section { position: relative; height: auto; min-height: 100svh; }
+  .hero { min-height: 100svh; }
+  .move-me-container { display: none; }
+  .about-me { min-height: 100svh; padding: 32px 0; }
+  .projects { min-height: 0; padding: 42px 0 72px; }
+  .contact { min-height: 100svh; padding: 60px 0; }
+  .section-intro { width: min(88vw, 680px); }
+}
+
+@media (max-width: 480px) {
+  .contact { min-height: 100svh; padding: 48px 0; }
+  .contact-intro h2 { font-size: clamp(39px, 12.5vw, 58px); line-height: .9; }
+  .collaboration-line { margin-top: 20px; font-size: clamp(25px, 8vw, 36px) !important; }
+  .contact-links { flex-wrap: wrap; margin-top: 24px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .rotating-word { animation: none; }
 }

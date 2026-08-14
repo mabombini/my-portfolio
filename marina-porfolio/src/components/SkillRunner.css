@@ -132,6 +132,10 @@
     .runner-player { bottom: 62px; }
 }
 
+@media (max-width: 900px) {
+    .skill-runner { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .shelf-item img, .life { transition: none; }
     .game-idle .runner-player { animation: none; }

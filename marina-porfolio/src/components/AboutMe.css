@@ -77,6 +77,24 @@
     .feed-heading { margin-bottom: 18px; }
 }
 
+@media (max-width: 480px) {
+    .about-me-container { width: 98vw; height: 92svh; }
+    .social-window { inset: 4% 1.8% 1.4%; padding: 14px 10px; }
+    .profile-card { grid-template-columns: 52px 1fr; column-gap: 11px; padding: 0 8px 7px; }
+    .profile-photo-wrap { width: 46px; }
+    .profile-card h2 { font-size: 22px; }
+    .social-feed { padding: 3px 5px 35px 25px; }
+    .feed-heading { margin-left: 14px; }
+    .feed-heading h2 { font-size: 34px; }
+    .timeline { left: 8px; }
+    .social-post { margin-left: 14px; padding: 14px; border-radius: 14px; box-shadow: 4px 4px 0 #9EA1D4; }
+    .timeline-icon { left: -31px; width: 25px; height: 25px; }
+    .post-header strong { font-size: 17px; }
+    .post-copy { font-size: 12px; }
+    .update-banner { gap: 9px; }
+    .update-banner > span { font-size: 27px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .timeline span { transition: none; }
 }

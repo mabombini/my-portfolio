@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Hero.css'
 import bubbleImg from '../assets/img/bubble.png'
 import meImg from '../assets/img/me.JPG'
@@ -16,6 +16,15 @@ function Bubble({ children }) {
 
 function Hero(){
     const [gameMessage, setGameMessage] = useState('PRESS ← → OR A / D TO PLAY')
+    const [showGame, setShowGame] = useState(() => window.matchMedia('(min-width: 901px)').matches)
+
+    useEffect(() => {
+        const desktopQuery = window.matchMedia('(min-width: 901px)')
+        const updateGameVisibility = (event) => setShowGame(event.matches)
+        desktopQuery.addEventListener('change', updateGameVisibility)
+        return () => desktopQuery.removeEventListener('change', updateGameVisibility)
+    }, [])
+
     const moveNameGradient = (event) => {
         const bounds = event.currentTarget.getBoundingClientRect()
         event.currentTarget.style.setProperty('--pointer-x', `${event.clientX - bounds.left}px`)
@@ -24,7 +33,7 @@ function Hero(){
 
     return(
         <section className="hero-section">
-            <SkillRunner onMessageChange={setGameMessage} />
+            {showGame && <SkillRunner onMessageChange={setGameMessage} />}
             <div className="hero-text">
                 <a className="hero-hello">Hello there, I'm</a>
                 <span

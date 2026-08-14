@@ -1,8 +1,8 @@
-nav{
+.topbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px clamp(24px, 10vw, 180px);
+    padding: 24px clamp(24px, 8vw, 128px);
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -23,9 +23,30 @@ body{
     padding: 0;
 }
 
-.links{
+.topbar-links{
     display: flex;
     flex-direction: row;
     gap: 10px;
     font-size: 16px;
+}
+
+.topbar-links a { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.topbar a { color: #111; }
+.topbar-links svg { display: none; width: 21px; height: 21px; fill: currentColor; }
+
+@media (max-width: 760px) {
+    .topbar { padding: 18px 20px; }
+    .logo { max-width: 175px; font-size: 12px; line-height: 1.25; }
+    .topbar-links { gap: 8px; }
+    .topbar-links a { display: grid; place-items: center; width: 38px; height: 38px; border: 1.5px solid #111; border-radius: 50%; background: #fff; box-shadow: 2px 2px 0 #111; }
+    .topbar-links svg { display: block; }
+    .topbar-links span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+}
+
+@media (max-width: 430px) {
+    .topbar { padding-inline: 14px; }
+    .logo { max-width: 135px; font-size: 10px; }
+    .topbar-links { gap: 6px; }
+    .topbar-links a { width: 34px; height: 34px; }
+    .topbar-links svg { width: 18px; height: 18px; }
 }

@@ -7,6 +7,7 @@ import filteredResultsScreen from '../assets/img/esports-screenshots/Screenshot 
 import filteredResultsScreenTwo from '../assets/img/esports-screenshots/Screenshot 2026-08-11 102925.png'
 import leaderboardScreen from '../assets/img/esports-screenshots/Screenshot 2026-08-11 102952.png'
 import recyclerScreen from '../assets/img/recyclers-screenshots/computer-screen.png'
+import miederswellScreen from '../assets/img/miederswell.png'
 
 const screenshots = [
     { src: resultsScreen, alt: 'Competition results and event leaderboard', label: 'Results & leaderboard' },
@@ -62,7 +63,7 @@ function RecyclerPreview() {
 function IndustryPreview() {
     return <div className="project-preview industry-preview">
         <div className="preview-bar"><i /><i /><i /><span>Miederswell · Macadamia Nuts</span></div>
-        <div className="screenshot-stage industry-stage"><iframe src="https://live-industryproject.netlify.app/" title="Miederswell Macadamia Nuts live preview" loading="lazy" /></div>
+        <div className="screenshot-stage industry-stage"><img src={miederswellScreen} alt="Miederswell Macadamia Nuts online store" /></div>
         <div className="gallery-footer"><span>Live website</span><span /><span>React / Express</span></div>
     </div>
 }
