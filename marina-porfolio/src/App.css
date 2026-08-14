@@ -35,13 +35,16 @@
 }
 
 .projects {
+  position: relative;
   z-index: 3;
   align-items: center;
   justify-content: flex-start;
+  height: auto;
+  min-height: 200vh;
+  min-height: 200svh;
   padding: clamp(24px, 4vh, 48px) 0;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  background-color: #A8D1D1;
+  overflow: visible;
+  background-color: #9EA1D4;
   box-shadow: 0 -14px 35px rgba(17, 17, 17, .1);
 }
 
