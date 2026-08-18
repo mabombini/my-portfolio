@@ -48,6 +48,7 @@ function Hero(){
             </div>
             <div className="hero-image">
                 <img className="hero-img" src={meImg} alt="Marina" />
+                <span className="hero-opportunity-status">Open to opportunities</span>
                 <img className="arrow-img" src={arrowImg} alt="" aria-hidden="true" />
                 <Bubble>{gameMessage}</Bubble>
                 <div className="green-rectangle"></div>

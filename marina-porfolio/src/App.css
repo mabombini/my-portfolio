@@ -129,6 +129,10 @@
   box-shadow: 5px 5px 0 #111;
 }
 
+.contact-intro .cv-button {
+  background: #fff;
+}
+
 .contact-intro .social-button {
   display: grid;
   place-items: center;

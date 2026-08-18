@@ -74,6 +74,8 @@
     z-index: 5;
 }
 
+.hero-opportunity-status { display: none; }
+
 .arrow-img {
     position: absolute;
     width: 80px;
@@ -205,6 +207,21 @@
     .hero-hello { font-size: clamp(22px, 5vw, 28px); }
     .hero-image { width: 180px; }
     .hero-img { width: 180px; height: 180px; }
+    .hero-opportunity-status {
+        display: block;
+        width: max-content;
+        margin: 14px 0 0 50%;
+        padding: 8px 13px;
+        border: 1.5px solid #111;
+        border-radius: 999px;
+        background: #F1F7B5;
+        color: #111;
+        box-shadow: 3px 3px 0 #111;
+        font: 700 11px/1 "Lato", sans-serif;
+        letter-spacing: .02em;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
     .my-tools, .bubble, .arrow-img, .green-rectangle, .yellow-elipse, .pink-rectangle { display: none; }
 }
 
@@ -212,5 +229,6 @@
     .hero-section { padding-top: 22px; gap: 28px; }
     .hero-name { font-size: clamp(74px, 26vw, 112px); }
     .hero-intro { max-width: 280px; }
-    .hero-image, .hero-img { width: 145px; height: 145px; }
+    .hero-image { width: 145px; height: auto; }
+    .hero-img { width: 145px; height: 145px; }
 }
