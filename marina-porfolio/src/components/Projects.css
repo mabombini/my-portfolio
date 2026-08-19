@@ -8,6 +8,7 @@
 .project-card:nth-child(1) { z-index: 1; }
 .project-card:nth-child(2) { z-index: 2; }
 .project-card:nth-child(3) { z-index: 3; }
+.project-card:nth-child(4) { z-index: 4; }
 .project-preview { position: relative; align-self: stretch; min-height: 0; margin: clamp(16px, 2.3vw, 30px); border: 1.5px solid #111; border-radius: 12px; overflow: hidden; background: #f7f7f7; box-shadow: 5px 5px 0 #9EA1D4; }
 .preview-bar { display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-bottom: 1px solid #aaa; background: #d8dddf; }
 .preview-bar i { width: 7px; height: 7px; border: 1px solid #111; border-radius: 50%; background: #FD8A8A; }
@@ -34,6 +35,10 @@
 .industry-card .project-details { background: #D7E9C1; }
 .industry-card .project-github { background: #F1F7B5; }
 .industry-stage { background: #fff; }
+.glowback-card { box-shadow: 9px 9px 0 #F1F7B5; }
+.glowback-card .project-details { background: #DCE9E3; }
+.glowback-card .project-github { background: #A8D1D1; }
+.glowback-stage { background: #fff; }
 @media (max-height: 760px) and (min-width: 761px) { .projects-heading { margin-bottom: 14px; }.projects-heading h2 { font-size: 52px; }.project-card { height: 500px; }.project-details { padding: 24px 30px; }.project-details h3 { margin: 10px 0 12px; font-size: 44px; }.technology-list { margin: 14px 0; }.screenshot-stage { min-height: 300px; } }
 @media (max-width: 760px) { .projects-content { --project-card-stop: 122px; margin: 0 auto; }.projects-heading { align-items: start; flex-direction: column; gap: 4px; min-height: 80px; }.project-stack { padding-bottom: 18vh; }.project-stack .project-card + .project-card { margin-top: 100svh; }.project-card { grid-template-columns: 1fr; width: calc(100% - 10px); height: auto; min-height: 0; overflow: hidden; }.project-preview { min-height: 330px; }.screenshot-stage { min-height: 260px; }.project-details { padding: 28px; }.project-details h3 { font-size: 43px; } }
 

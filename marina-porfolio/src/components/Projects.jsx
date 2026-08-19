@@ -8,6 +8,7 @@ import filteredResultsScreenTwo from '../assets/img/esports-screenshots/Screensh
 import leaderboardScreen from '../assets/img/esports-screenshots/Screenshot 2026-08-11 102952.png'
 import recyclerScreen from '../assets/img/recyclers-screenshots/computer-screen.png'
 import miederswellScreen from '../assets/img/miederswell.png'
+import glowbackScreen from '../assets/img/glowback-website.png'
 
 const screenshots = [
     { src: resultsScreen, alt: 'Competition results and event leaderboard', label: 'Results & leaderboard' },
@@ -68,6 +69,14 @@ function IndustryPreview() {
     </div>
 }
 
+function GlowbackPreview() {
+    return <div className="project-preview glowback-preview">
+        <div className="preview-bar"><i /><i /><i /><span>Glowback · Bond Cleaning</span></div>
+        <div className="screenshot-stage glowback-stage"><img src={glowbackScreen} alt="Glowback Bond Cleaning website" /></div>
+        <div className="gallery-footer"><span>Live website</span><span /><span>React / Vite</span></div>
+    </div>
+}
+
 function ProjectDetails({ number, title, description, technologies, href, linkLabel, liveHref }) {
     return <div className="project-details">
         <div className="project-number">PROJECT {number} · 2025</div>
@@ -88,6 +97,7 @@ export default function Projects() {
             <article className="project-card"><EsportsGallery /><ProjectDetails number="01" title={<>Gold Coast<br />Esports Manager</>} description="A Java desktop application for managing esports competitions. Staff can filter results, calculate leaderboards, register outcomes, maintain teams and events, and export data to CSV." technologies={['Java 21', 'Java Swing', 'MySQL', 'JDBC', 'SQL', 'NetBeans']} href="https://github.com/mabombini/java-esports" linkLabel="View repository" /></article>
             <article className="project-card recycler-card"><RecyclerPreview /><ProjectDetails number="02" title={<>Local Recyclers<br />Directory</>} description="A Windows desktop directory for local recycling services. Users can search, filter and navigate recyclers, maintain validated records, open company websites, and persist updates to CSV." technologies={['C#', '.NET 8', 'WinForms', 'CSV', 'OOP', 'Binary Search']} href="https://github.com/mabombini/c-sharp-recycler" linkLabel="View repository" /></article>
             <article className="project-card industry-card"><IndustryPreview /><ProjectDetails number="03" title={<>Miederswell<br />Macadamia Nuts</>} description="A full-stack e-commerce website for a local macadamia producer. Customers can browse products, manage their cart and account, complete checkout with PayPal, and review past orders." technologies={['React', 'Vite', 'Node.js', 'Express', 'MySQL', 'PayPal']} href="https://github.com/mabombini/online-store-industry-project" linkLabel="View repository" liveHref="https://live-industryproject.netlify.app/" /></article>
+            <article className="project-card glowback-card"><GlowbackPreview /><ProjectDetails number="04" title={<>Glowback<br />Quoting Website</>} description="A responsive quoting website for a local bond-cleaning business. The app automates quote creation and automatically sends quotes to clients, improving response time and increasing converted leads by 50%." technologies={['React', 'Vite', 'React Router', 'JavaScript', 'HTML', 'CSS']} href="https://github.com/mabombini/glowback-website" linkLabel="View repository" liveHref="https://glowback.au" /></article>
         </div>
     </div>
 }
